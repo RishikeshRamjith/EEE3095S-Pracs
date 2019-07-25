@@ -3,10 +3,10 @@
 Python Practical Template
 Keegan Crankshaw
 Readjust this Docstring as follows:
-Names: <names>
-Student Number: <studnum>
-Prac: <Prac Num>
-Date: <dd/mm/yyyy>
+Names: Rishikesh Ramjith
+Student Number: RMJHRS001
+Prac: 1
+Date: 25/07/2019
 """
 
 # import Relevant Librares
@@ -14,7 +14,9 @@ import RPi.GPIO as GPIO
 
 # Logic that you write
 def main():
-    print("write your logic here")
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(18, GPIO.OUT)
+    GPIO.output(18, GPIO.HIGH)
 
 
 # Only run the functions if 

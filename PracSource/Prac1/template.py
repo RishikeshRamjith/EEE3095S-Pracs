@@ -14,17 +14,18 @@ import RPi.GPIO as GPIO
 import time
 # Logic that you write
 def main():
-    GPIO.output(18, GPIO.HIGH)
-    time.sleep(1)
-    GPIO.output(18, GPIO.LOW)
-    time.sleep(1)
+    ledPin = 4
+    buttonPin = 18
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(ledPin, GPIO.OUT)
+    GPIO.output(ledPin, not GPIO.input(buttonPin))
+    time.sleep(0.1)
 
 # Only run the functions if 
 if __name__ == "__main__":
     # Make sure the GPIO is stopped correctly
     try:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(18, GPIO.OUT)
         while True:
             main()
     except KeyboardInterrupt:
